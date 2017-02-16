@@ -9,8 +9,8 @@ import { uuid } from '/imports/fantasy/lib/mixins';
 */
 
 export class Player {
-  constructor({name, price, position}) {
-    this.id = uuid();
+  constructor({_id, name, price, position}) {
+    this._id = _id || uuid();
     // has name?
     this.name = name;
     // has price?

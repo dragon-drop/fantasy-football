@@ -3,32 +3,10 @@ import { AccountFactory } from './models/Account/AccountFactory';
 import { AccountRepo } from './models/Account/AccountRepo';
 
 import { Player } from './models/Player/Player';
+import { PlayerRepo } from './models/Player/PlayerRepo';
 import { Positions } from './lib/Positions';
 import { Errors } from './lib/Errors';
 
-/* PlayerRepository
- * add(player)
- * remove(id)
- * findById(id)
- */
-
-const PlayerRepo = {
-  count: 0,
-  players: {},
-  add(player) {
-    this.players[player.id] = player;
-    this.count++;
-
-    return player;
-  },
-  remove(playerId) {
-    this.players[playerId] = null;
-    this.count--;
-  },
-  findById(playerId) {
-    return this.players[playerId];
-  },
-};
 
 /* Service */
 function AddPlayerToLineup(playerId, accountId) {
