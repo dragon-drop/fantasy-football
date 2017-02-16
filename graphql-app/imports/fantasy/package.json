@@ -1,0 +1,14 @@
+{
+  "name": "@adamdawkins/fantasy",
+  "version": "1.0.0",
+  "description": "The core domain of a fantasy football application",
+  "main": "index.js",
+  "scripts": {
+    "test": "babel-node tests.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.22.2"
+  }
+}
