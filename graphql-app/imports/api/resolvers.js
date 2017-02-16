@@ -26,7 +26,7 @@ export const resolvers = {
       return Fantasy.PlayerRepo.insert(new Fantasy.Player(player));
     },
     addPlayerToLineup(root, {playerId, accountId}) {
-      return Fantasy.addPlayerToLineup(playerId, accountId);
+      return Fantasy.AddPlayerToLineup(playerId, accountId);
     },
     _insertAccount(root, account) {
       const savedAccount = UserAccounts.insert(account);
