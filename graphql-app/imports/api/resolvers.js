@@ -8,8 +8,8 @@ PriceType.description = 'A price, max 1DP';
 export const resolvers = {
   price: PriceType,
   Query: {
-    account(root, {id}) {
-      return Fantasy.AccountRepo.findById(id);
+    account(root, {_id}) {
+      return Fantasy.AccountRepo.find(_id);
     },
     accounts() {
       return Fantasy.AccountRepo.findAll();
@@ -20,13 +20,13 @@ export const resolvers = {
   },
   Mutation: {
     createAccount() {
-      return Fantasy.AccountRepo.add(new Fantasy.Account());
+      return Fantasy.AccountRepo.insert(Fantasy.AccountFactory.create());
     },
     createPlayer(root, player) {
-      return Fantasy.PlayerRepo.add(new Fantasy.Player(player));
+      return Fantasy.PlayerRepo.insert(new Fantasy.Player(player));
     },
     addPlayerToLineup(root, {playerId, accountId}) {
-      return Fantasy.AddPlayerToLineup(playerId, accountId);
+      return Fantasy.addPlayerToLineup(playerId, accountId);
     },
     _insertAccount(root, account) {
       const savedAccount = UserAccounts.insert(account);

@@ -1,27 +1,10 @@
-import { UserAccounts } from '/imports/infrastructure/collections';
-import { Account } from './models/Account';
+import { Account } from './models/Account/Account';
+import { AccountFactory } from './models/Account/AccountFactory';
+import { AccountRepo } from './models/Account/AccountRepo';
+
+import { Player } from './models/Player/Player';
 import { Positions } from './lib/Positions';
 import { Errors } from './lib/Errors';
-
-
-
-/* Player (Entity)
-  * Unique id: String
-  * Name: String
-  * Price: number
-  * position: Position
-*/
-
-function Player({name, price, position}) {
-  this.id = uuid();
-  // has name?
-  this.name = name;
-  // has price?
-  this.price = price;
-  // has position?
-  this.position = position;
-};
-
 
 /* PlayerRepository
  * add(player)
@@ -46,34 +29,6 @@ const PlayerRepo = {
     return this.players[playerId];
   },
 };
-
-/* Account Repository
- * add(account)
- * remove(id)
- * findById(id)
- */
-const AccountRepo = {
-  count: 0,
-  accounts: {},
-  add(account) {
-    console.log('add', {account});
-    this.accounts[account.id] = account;
-    this.count++;
-    UserAccounts.insert(account);
-    return account;
-  },
-  remove(accountId) {
-    this.accounts[accountId] = null;
-    this.count--;
-  },
-  findById(accountId) {
-    return this.accounts[accountId];
-  },
-  findAll() {
-    return Object.keys(this.accounts).map((key) => this.accounts[key]);
-  }
-};
-
 
 /* Service */
 function AddPlayerToLineup(playerId, accountId) {
@@ -104,6 +59,7 @@ export default Fantasy = {
   Positions,
   Account,
   Player,
+  AccountFactory,
   AccountRepo,
   PlayerRepo,
   AddPlayerToLineup,

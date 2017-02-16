@@ -14,7 +14,3 @@ const schema = makeExecutableSchema({
 createApolloServer({
   schema,
 });
-
-Meteor.startup(() => {
-  Fantasy.AccountRepo.add(new Fantasy.Account());
-});

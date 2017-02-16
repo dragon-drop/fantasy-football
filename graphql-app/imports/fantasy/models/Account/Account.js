@@ -1,21 +1,19 @@
-import { uuid } from '../lib/mixins';
-import { settings } from '../lib/settings';
-import { Errors } from '../lib/Errors';
-import { Lineup } from './Lineup';
+import { Errors } from '/imports/fantasy/lib/Errors';
 
 /* ACCOUNT
  * Entity
  * ------
- * unique id
+ * _id: uuid
  * lineup: Lineup
  * budgetRemaining: Float
  */
 
 export class Account {
-  constructor() {
-    this.id = uuid();
-    this.lineup = new Lineup();
-    this.budgetRemaining = settings.totalAmountToSpend;
+  constructor(options) {
+    const { _id, lineup, budgetRemaining } = options;
+    this._id = _id;
+    this.lineup = lineup;
+    this.budgetRemaining = budgetRemaining;
   }
 
   addPlayerToLineup(player) {

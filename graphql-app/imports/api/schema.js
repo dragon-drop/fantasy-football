@@ -11,7 +11,7 @@ enum Position {
 scalar price
 
 type Account {
-  id: String!
+  _id: String!
   lineup: Lineup!
   budgetRemaining: Float
 }
@@ -24,7 +24,7 @@ type Formation {
 }
 
 type Player {
-  id: String!
+  _id: String!
   name: String
   price: price!
   position: Position!
@@ -37,11 +37,9 @@ type Lineup {
 }
 
 type Query {
-  playersByPosition(position: Position!): [Player]
-  playersByPrice(min: price! max: price!): [Player]
-  player(id: String!): Player
+  player(_id: String!): Player
 
-  account(id: String!): Account
+  account(_id: String!): Account
   accounts: [Account]
 }
 
