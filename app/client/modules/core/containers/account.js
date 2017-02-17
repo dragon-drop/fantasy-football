@@ -37,12 +37,11 @@ export const composer = ({context}, onData) => {
     `,
     variables: { id },
   }).then(({ data }) => {
-    const { account } = data;
     console.log({ data });
-
+    const { account } = data;
     onData(null, { account });
-  }).catch((error) => { console.error(error) });
-};
+  });
+}
 
 export const depsMapper = (context, actions) => ({
   context: () => context
