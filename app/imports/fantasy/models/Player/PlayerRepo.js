@@ -12,4 +12,12 @@ export class PlayerRepo {
 
     return new Player(rawPlayer);
   }
+
+  static all() {
+    const rawPlayers = Players.find().fetch();
+    console.log( {rawPlayers});
+    return rawPlayers.map((rawPlayer) => {
+      return new Player(rawPlayer);
+    });
+  }
 }
