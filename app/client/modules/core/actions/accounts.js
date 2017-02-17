@@ -16,5 +16,30 @@ export default {
 		  console.log('there was an error sending the query', error);
 		});
 
+  },
+
+  addPlayerToLineup( { Client, FlowRouter }, playerId) {
+    Client.mutate({
+		  mutation: gql`
+        mutation addPlayerToLineup($playerId: String!, $accountId: String!) {
+        lineup:addPlayerToLineup(playerId: $playerId, accountId: $accountId) {
+              players {
+                name
+                position
+            }
+          }
+        }
+		  `,
+      variables: {
+        playerId,
+        accountId: FlowRouter.getParam('_id'),
+      }
+		}).then(({ data }) => {
+      const { lineup } = data;
+      console.log({lineup});
+		}).catch((error) => {
+		  console.log('there was an error sending the query', error);
+		});
+
   }
 }

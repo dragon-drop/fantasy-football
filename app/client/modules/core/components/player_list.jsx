@@ -1,4 +1,5 @@
 import React from 'react';
+import PlayerItem from '../containers/player_item';
 
 class PlayerList extends React.Component {
   constructor(props) {
@@ -10,9 +11,7 @@ class PlayerList extends React.Component {
     return (
       <div>
         {players.map((player) => (
-          <div key={player._id}>
-            {player.name} ({player.position})
-          </div>
+          <PlayerItem key={player._id} player={player} />
         ))}
       </div>
     );
