@@ -1,17 +1,13 @@
-import { Meteor } from 'meteor/meteor';
-import { render } from 'react-dom';
-import React from 'react';
+import {createApp} from 'mantra-core';
+import initContext from './configs/context';
 
-import ApolloClient from 'apollo-client';
-import { meteorClientConfig } from 'meteor/apollo';
-import { ApolloProvider } from 'react-apollo';
+// modules
+import coreModule from './modules/core';
 
-import App from '/imports/ui/App';
+// init context
+const context = initContext();
 
-const client = new ApolloClient(meteorClientConfig());
-
-Meteor.startup(() => {
-  render(<ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>, document.getElementById('app'));
-});
+// create app
+const app = createApp(context);
+app.loadModule(coreModule);
+app.init();
