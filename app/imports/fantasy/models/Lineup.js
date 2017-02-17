@@ -12,10 +12,10 @@ import { Formation } from './Formation';
   */
 
 export class Lineup {
-  constructor() {
-    this.players = [];
-    this.targetFormation = new Formation(settings.defaultFormation);
-    this.currentFormation = new Formation();
+  constructor(options) {
+    this.players = options.players || [];
+    this.targetFormation = options.targetFormation || new Formation(settings.defaultFormation);
+    this.currentFormation = options.current || new Formation();
   }
 
   getCurrentFormation() {

@@ -16,6 +16,8 @@ export class AccountRepo {
 
   static update(account) {
     const { _id } = account;
+    delete account._id;
+    console.log('update', {_id, account});
     Accounts.update({ _id }, { $set: account });
   }
 }

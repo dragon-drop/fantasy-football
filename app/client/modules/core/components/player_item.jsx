@@ -3,7 +3,6 @@ import React from 'react';
 class PlayerItem extends React.Component {
   constructor(props) {
     super(props);
-    console.log({ props });
     this.addToLineup = this.addToLineup.bind(this);
   }
 

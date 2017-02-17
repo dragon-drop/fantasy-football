@@ -1,8 +1,10 @@
 There’s a lineup.
 You select players for lineups, we won’t model the ‘user’ at this point though.
 * Players have positions and values
-* Lineups have to be within a budget, and have to be in a 4-3-3 formation, so 1 GK, 4 Defenders, 3 Mid, 3 Strikers
+* Lineups have to be within a budget, and have to be in a 4-3-3 formation, 
+so 1 GK, 4 Defenders, 3 Mid, 3 Strikers
 * can’t select same player twice
+
 
 # Models
 

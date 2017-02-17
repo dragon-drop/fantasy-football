@@ -25,6 +25,7 @@ export const composer = ({context}, onData) => {
               FW
             }
             players {
+              _id
               name
               position
               price

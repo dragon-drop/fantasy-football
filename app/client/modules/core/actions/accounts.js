@@ -19,6 +19,8 @@ export default {
   },
 
   addPlayerToLineup( { Client, FlowRouter }, playerId) {
+    const accountId =  FlowRouter.getParam('_id');
+    console.log({accountId, playerId});
     Client.mutate({
 		  mutation: gql`
         mutation addPlayerToLineup($playerId: String!, $accountId: String!) {
@@ -32,7 +34,7 @@ export default {
 		  `,
       variables: {
         playerId,
-        accountId: FlowRouter.getParam('_id'),
+        accountId,
       }
 		}).then(({ data }) => {
       const { lineup } = data;
