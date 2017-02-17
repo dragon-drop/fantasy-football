@@ -14,9 +14,14 @@ export const resolvers = {
     accounts() {
       return Fantasy.AccountRepo.findAll();
     },
+
     player(root, {_id}) {
       return Fantasy.PlayerRepo.find(_id);
-    }
+    },
+
+    players() {
+      return Fantasy.PlayerRepo.all();
+    },
   },
   Mutation: {
     createAccount() {

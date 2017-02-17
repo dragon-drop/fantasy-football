@@ -38,6 +38,7 @@ type Lineup {
 
 type Query {
   player(_id: String!): Player
+  players: [Player]
 
   account(_id: String!): Account
   accounts: [Account]
